@@ -1,7 +1,8 @@
 console.log("Web serverni boshlash");
 const express = require("express");
 const app = express();
-const router = require("./router");
+const router = require("./router.js");
+const router_bssr = require("./router_bssr.js");
 
 
 // 1: KIrish code
@@ -17,7 +18,7 @@ app.set("view engine", "ejs");
 
 // 4: Routing code
 app.use("/", router);
-// app.use("/resto", router_bssr);
+app.use("/resto", router_bssr);
 
 
 
