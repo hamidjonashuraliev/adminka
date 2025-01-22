@@ -22,7 +22,6 @@ class Member {
                 throw new Error(Definer.auth_err1);
             }
 
-            result.mb_password = "";
             return result;
         } catch (err) {
             throw err;

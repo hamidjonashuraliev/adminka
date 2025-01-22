@@ -5,7 +5,6 @@ const {
     ordernary_enums,
 } = require("../lib/config");
 
-
 const memberSchema = new mongoose.Schema({
     mb_nick: {
         type: String,
@@ -89,9 +88,7 @@ const memberSchema = new mongoose.Schema({
         required: false,
         default: 0,
     },
-  
 });
-
 
 {
     timestamps: true;

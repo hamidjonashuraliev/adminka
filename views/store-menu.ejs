@@ -1,0 +1,19 @@
+<%- include('includes/header') %>
+
+<body>
+  <h1>My Store Page</h1>
+
+  <% if(!member) { %>
+
+  <h2>You are not authenticated member</h2>
+  <% } else { %>
+
+  <h1>
+    You are authenticated member with nickname: <%= member.mb_nick%>
+</h1>
+<p>You phone num.: <%= member.mb_phone%></p>
+
+  <% } %>
+</body>
+
+<%- include('includes/footer') %>

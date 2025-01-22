@@ -11,7 +11,6 @@ router.post("/signup", memberController.signup);
 router.post("/login", memberController.login);
 router.get("/logout", memberController.logout);
 
-
 //boshqa routerlar
 router.get("/menu", (req, res) => {
     res.send("Menu Page");

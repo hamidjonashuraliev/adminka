@@ -4,10 +4,12 @@ let memberController = module.exports;
 
 memberController.signup = async (req, res) => {
     try {
-        console.log("POST: cont/signup"),
-            (data = req.body),
-            (member = new Member()),
-            (new_member = await member.signupData(data));
+        console.log("POST: cont/signup");
+        const data = req.body,
+            member = new Member(),
+            new_member = await member.signupData(data);
+
+        // TODO: AUTHENTICATE BASED ON JWT
 
         res.json({ state: "succeed", data: new_member });
     } catch (err) {
