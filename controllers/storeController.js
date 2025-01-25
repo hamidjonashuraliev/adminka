@@ -72,8 +72,10 @@ storeController.logout = (req, res) => {
 };
 
 storeController.validateAuthStore = (req, res, next) => {
+   const session = req.session;
     if (req.session?.member?.mb_type === "STORE") {
         req.member = req.session.member;
+   
         next();
     } else
         res.json({

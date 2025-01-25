@@ -6,6 +6,7 @@ const {
     product_volume_enums,
     product_specs_enums,
 } = require("../lib/config");
+
 const Schema = mongoose.Schema;
 
 const productSchema = new mongoose.Schema(
@@ -24,7 +25,7 @@ const productSchema = new mongoose.Schema(
             required: false,
             default: "PAUSED",
             enum: {
-                values: [product_status_enums],
+                values: product_status_enums,
                 message: "{VALUE} is not among permitted enum values}",
             },
         },
@@ -37,7 +38,7 @@ const productSchema = new mongoose.Schema(
             required: false,
             default: 0,
         },
-        product_left_count: {
+        product_left_cnt: {
             type: Number,
             required: true,
         },
@@ -55,7 +56,7 @@ const productSchema = new mongoose.Schema(
                 return sized_list.includes(this.product_collection);
             },
             enum: {
-                values: [product_size_enums],
+                values: product_size_enums,
                 message: "{VALUE} is not among permitted enum values}",
             },
         },
@@ -66,7 +67,7 @@ const productSchema = new mongoose.Schema(
                 return this.product_collection === "laptop";
             },
             enum: {
-                values: [product_volume_enums],
+                values: product_volume_enums,
                 message: "{VALUE} is not among permitted enum values}",
             },
         },
@@ -75,7 +76,7 @@ const productSchema = new mongoose.Schema(
             default: 1,
             required: true, //todo
             enum: {
-                values: [product_specs_enums],
+                values: product_specs_enums,
                 message: "{VALUE} is not among permitted enum values}",
             },
         },
