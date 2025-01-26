@@ -1,15 +1,16 @@
 const Member = require("../models/Member");
+const Product = require("../models/Product");
 
 let storeController = module.exports;
 
-storeController.getMyStoreData = async (req, res) => {
+storeController.getMyStoreProducts = async (req, res) => {
     try {
-        console.log("GET: cont/getMyStoreData");
-        //TODO: Get my store products
-
-        res.render("store-menu");
+        console.log("GET: cont/getMyStoreProducts");
+        const product = new Product();
+        const data = await product.getAllProductsDataStor(res.locals.member);
+        res.render("store-menu", { store_data: data });
     } catch (err) {
-        console.log(`ERROR, cont/getMyStoreData, ${err.message}`);
+        console.log(`ERROR, cont/getMyStoreProducts, ${err.message}`);
         res.json({ state: "fail", message: err.message });
     }
 };
@@ -72,10 +73,10 @@ storeController.logout = (req, res) => {
 };
 
 storeController.validateAuthStore = (req, res, next) => {
-   const session = req.session;
+    const session = req.session;
     if (req.session?.member?.mb_type === "STORE") {
         req.member = req.session.member;
-   
+
         next();
     } else
         res.json({

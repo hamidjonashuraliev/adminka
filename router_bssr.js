@@ -18,7 +18,7 @@ router_bssr
 router_bssr.get("/logout", storeController.logout);
 router_bssr.get("/check-me", storeController.checkSessions);
 
-router_bssr.get("/products/menu", storeController.getMyStoreData);
+router_bssr.get("/products/menu", storeController.getMyStoreProducts);
 router_bssr.post(
     "/products/create",
     storeController.validateAuthStore,
