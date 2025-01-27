@@ -1,0 +1,197 @@
+.group_name {
+    z-index: 10000;
+}
+
+body {
+    margin: 0;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, magenta, cyan);
+    color: #00ff00;
+    overflow: hidden;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, cyan, magenta);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border-radius: 50px;
+    padding: 50px;
+    margin: 15px auto;
+    width: 100%;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.nav-item {
+    margin:  10px;
+    position: relative;
+}
+
+.nav-link {
+    color: #00ffff;
+    text-decoration: none;
+    font-size: 50px;
+    padding: 20px;
+    position: relative;
+    border-radius: 30px;
+    transition: all 0.4s ease;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+}
+
+.nav-link:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 25px #ff00ff, 0 0 50px #ff00ff;
+    transform: scale(1.1);
+}
+
+.nav-link.active {
+    color: #ff00ff;
+    text-shadow: 0 0 25px #ff00ff, 0 0 50px #ff00ff;
+}
+
+.nav-item:hover .nav-link {
+    animation: neonGlow 5s ease-in-out infinite;
+}
+
+@keyframes neonGlow {
+    0% {
+        text-shadow: 0 0 10px blue, 0 0 20px #ff00ff;
+    }
+    50% {
+        text-shadow: 0 0 30px #2fc715, 0 0 60px #d91903;
+    }
+    100% {
+        text-shadow: 0 0 10px #1e08c7, 0 0 20px #acd409;
+    }
+}
+
+/* hhhhhhhhhhhhhhhhhhhhhhh */
+
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: #030318; */
+}
+
+.neonClock {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    position: relative;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    box-shadow: inset 0px 7px 11px -4px rgba(255, 0, 255, 0.5),
+        inset 0px 98px 100px -48px rgba(255, 0, 255, 0.3),
+        inset 0px 4px 18px rgba(223, 0, 223, 0.2),
+        inset 0px 1px 40px rgba(191, 0, 191, 0.2);
+}
+
+.center {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    z-index: 10;
+    background: #ff00ff;
+    box-shadow: 0px 0px 82px #ffd700, 0px 0px 42px #ffd700, 0px 0px 21px #dfbc00,
+        0px 0px 10px #ffd700, 0px 0px 7px #d50e15;
+}
+
+.hour-hand {
+    position: absolute;
+    z-index: 5;
+    width: 5px;
+    height: 150px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    top: 18%;
+    left: 49%;
+    transform-origin: 50% 158px;
+    background: #ffffff;
+    box-shadow: 0px 0px 82px #ffffff, 0px 0px 42px #ffffff, 0px 0px 21px #ffffff,
+        0px 0px 10px #ffffff, 0px 0px 7px #ffffff;
+}
+
+.minute-hand {
+    position: absolute;
+    z-index: 6;
+    width: 4px;
+    height: 200px;
+    top: 9%;
+    left: 50%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    transform-origin: 50% 205px;
+    background: #ffffff;
+    box-shadow: 0px 0px 82px #ffffff, 0px 0px 42px #ffffff, 0px 0px 21px #ffffff,
+        0px 0px 10px #ffffff, 0px 0px 7px #ffffff;
+}
+
+.second-hand {
+    position: absolute;
+    z-index: 7;
+    width: 3px;
+    height: 200px;
+    top: 9%;
+    left: 50%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    transform-origin: 50% 205px;
+    background: #bf00bf;
+    box-shadow: 0px 0px 82px #ff00ff, 0px 0px 42px #ff00ff, 0px 0px 21px #ff00ff,
+        0px 0px 10px #df00df, 0px 0px 7px #bf00bf;
+}
+
+span {
+    display: inline-block;
+    position: absolute;
+    font-size: 2.5rem;
+    font-family: "Righteous", cursive;
+    z-index: 4;
+    color: #ffffff;
+
+    text-shadow: 0px 0px 82px #ffffff, 0px 0px 42px #ffffff,
+        0px 0px 21px #ffffff, 0px 0px 10px #ffffff, 0px 0px 7px #ffffff;
+}
+
+.hr12 {
+    top: 48px;
+    left: 48%;
+    color: #ffd700;
+
+    text-shadow: 0px 0px 82px #ffd700, 0px 0px 42px #ffd700,
+        0px 0px 21px #dfbc00, 0px 0px 10px #ffd700, 0px 0px 7px #ffd700;
+}
+.hr3 {
+    top: 45%;
+    right: 50px;
+}
+.hr6 {
+    bottom: 50px;
+    left: 48%;
+}
+.hr9 {
+    left: 50px;
+    top: 45%;
+}

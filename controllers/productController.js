@@ -18,7 +18,7 @@ productController.addNewProduct = async (req, res) => {
         console.log("POST: cont/addNewProduct");
         // console.log(req.member);
         // console.log(req.files);
-        assert(req.files, Definer.general_err3);
+        assert.ok(req.files, Definer.general_err3);
 
         const product = new Product();
         let data = req.body;
@@ -27,17 +27,15 @@ productController.addNewProduct = async (req, res) => {
             return ele.path;
         });
         //   console.log(data);
-
         const result = await product.addNewProductData(data, req.member);
-
         const html = `<script>
                         alert(new smartphone added successfully);
                         window.location.replace('/resto/product/menu)
                       </script>`;
-
         res.end(html);
     } catch (err) {
         console.log(`ERROR, cont/addNewProduct, ${err.message}`);
+        res.json({ state: "fail", message: err.message });
     }
 };
 
