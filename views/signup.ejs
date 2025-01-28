@@ -1,7 +1,119 @@
 <%- include('includes/header') %>
 
+<link rel="stylesheet" type="text/css" href="/css/login.css" />
+
 <body>
-    <h1>Signup page</h1>
+    <form
+        class="login_container"
+        action="/resto/sign-up"
+        method="POST"
+        enctype="multipart/form-data"
+    >
+        <div class="login_frame" style="width: 650px; height: 730px">
+            <div class="login_top">
+                <span>Ro'yhatdan o'tish</span>
+                <div>
+                    Bosh sahifaga qaytish
+                    <a href="/resto" style="color: #f5f5f5">Home</a>
+                </div>
+                <p>
+                    Ro'yhatdan allaqachon o'tganmisiz?
+                    <a href="/resto/login" style="color: #f5f5f5">Kirish</a>
+                </p>
+            </div>
+
+            <div class="sign_input_frame">
+                <div class="sign_up_frame">
+                    <label for=""> Foydalanuvchining ismi </label>
+                    <input
+                        style="border-radius: 50px"
+                        type="text"
+                        name="mb_nick"
+                        placeholder="Foydalanuvchining Ismi "
+                        value=""
+                        required
+                    />
+                </div>
+                <div class="sign_up_frame">
+                    <label for=""> Telefon raqamingiz </label>
+                    <input
+                        style="border-radius: 50px"
+                        type="text"
+                        name="mb_phone"
+                        placeholder="Telefon raqamingiz "
+                        value=""
+                        required
+                    />
+                </div>
+            </div>
+
+            <div class="sign_input_frame">
+                <div class="sign_up_frame">
+                    <label for=""> Password </label>
+                    <input
+                        style="border-radius: 50px"
+                        type="password"
+                        name="mb_password"
+                        placeholder="Passwordni kiriting "
+                        value=""
+                        required
+                    />
+                </div>
+                <div class="sign_up_frame">
+                    <label> Passwordni tasdiqlash </label>
+                    <input
+                        style="border-radius: 50px"
+                        type="password"
+                        name="mb_conform_password"
+                        placeholder="Passwordni tasdiqlash"
+                        value=""
+                        required
+                    />
+                </div>
+            </div>
+
+            <div class="login_input_frame">
+                <div class="media-frame" style="margin-top: 30px">
+                    <img
+                        class="upload_img_frame"
+                        src="/images/default_resto.jpg"
+                    />
+                    <div class="upload_container">
+                        <span class="media_text">Product Photo</span>
+                        <div class="filebox bs3-primary preview-image">
+                            <input
+                                class="upload-name"
+                                value="Rasmni tanlang"
+                                disabled="disabled"
+                            />
+                            <label>Rasmni yuklash</label>
+                            <input
+                                type="file"
+                                id="input_file"
+                                name="store_img"
+                                placeholder="Passwordni tasdiqlash"
+                                class="upload-hidden form-control-file store_img"
+                            />
+                        </div>
+                        <p class="thumbnail_desc">
+                            Store rasmingizni bu yerga yuklang.<br />Muhim
+                            ko'rsatmalar: jpg, jpeg, yoki png. <br />
+                            Rasmda matn bo'lishi shart!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <button
+                class="login_btn"
+                name="signup"
+                type="submit"
+                style="margin-top: 15px"
+            >
+                Ro'yhatdan o'tish
+            </button>
+        </div>
+    </form>
 </body>
 
 <%- include('includes/footer') %>

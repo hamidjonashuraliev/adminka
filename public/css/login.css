@@ -45,12 +45,13 @@ body {
 .login_container .login_frame {
     position: relative;
     width: 420px;
-    height: 460px;
+    height: auto;
     display: flex;
     flex-direction: column;
     border-radius: 30px;
     padding: 25px;
     background: linear-gradient(45deg, rgb(234, 241, 87), rgb(32, 223, 223));
+    /* background: #f5f5f5; */
 }
 
 .login_frame .login_top {
@@ -137,4 +138,135 @@ body {
     line-height: 50px;
     letter-spacing: -0.02em;
     color: #f5f5f5;
+}
+
+/*Sig up */
+.login_frame .sign_input_frame {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.sign_input_frame .sign_up_frame {
+    position: relative;
+    margin-top: 15px;
+    width: 45%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.sign_up_frame label {
+    font-family: "poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    border-radius: 50px;
+}
+
+.sign_up_frame input {
+    position: relative;
+    margin-top: 10px;
+    padding-left: 20px;
+    width: 100%;
+    height: 55px;
+    background: #f5f5f5;
+    border: 1px solid cyan;
+    border-radius: 8px;
+}
+
+.media-frame {
+    position: relative;
+    margin-top: 15px;
+    width: 100%;
+    height: 250px;
+
+    display: flex;
+    flex: row;
+    justify-content: space-between;
+}
+
+.media-frame .upload_img_frame {
+    position: relative;
+    width: 250px;
+    height: 90%;
+    display: flex;
+    border-radius: 30px;
+}
+
+.media-frame .upload_container {
+    position: relative;
+    margin-left: 30px;
+    width: 75%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.media_text {
+    font-family: GT Walsheim Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 18px;
+    color: #f5f5f5;
+}
+
+.filebox {
+    display: block;
+    margin-top: 25px;
+}
+
+.filebox input [type="file"] {
+    position: relative;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.filebox label {
+    width: 150px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:rgb(4, 231, 16);
+    border-radius: 30px;
+
+    font-family: "GT Walshein Pro";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    color: #f5f5f5;
+    margin-top: 10px;
+}
+
+.filebox .upload-name {
+    position: relative;
+    padding: 20px;
+    width: 85%;
+    height: 55px;
+
+    display: flex;
+    background: #f5f5f5;
+    border-radius: 30px;
+}
+
+.thumbnail_desc {
+    margin-top: 15px;
+    font-family: "GT Walshein Pro";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 15px;
+    color: #e220bf;
 }
