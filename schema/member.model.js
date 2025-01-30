@@ -20,6 +20,8 @@ const memberSchema = new mongoose.Schema({
         type: String,
         required: true,
         selected: false,
+      
+
     },
     mb_type: {
         type: String,

@@ -2,47 +2,45 @@
 <link rel="stylesheet" type="text/css" href="../css/login.css" />
 <body>
     <form class="login_container" action="/resto/login" method="POST">
-        <div class="login_frame" style="height: 460px;">
+        <div class="login_frame" style="height: 460px">
             <div class="login_top">
-                <span>Saytga Kirish</span>
+                <span>Login to Page</span>
                 <div>
-                    Bosh sahifaga kirish
-                    <a href="/resto" style="color: #f5f5f5">Home</a>
+                    Back to
+                    <a href="/resto" style="color: #f5f5f5">Home</a> Page
                 </div>
                 <p>
-                    Ro'yhatdan o'tganmisiz?
-                    <a href="/resto/signup" style="color: #f5f5f5"
-                        >Ro'yhatdan o'tish</a
-                    >
+                    Not yet signed up?
+                    <a href="/resto/signup" style="color: #f5f5f5">Sign up</a>
                 </p>
             </div>
 
             <div class="login_input_frame">
                 <div class="login_input_container">
-                    <label for="">Foydalanuvchining Ismi: </label>
+                    <label for="">Username: </label>
                     <input
                         style="border-radius: 50px"
                         type="text"
                         name="mb_nick"
-                        placeholder="Foydalanuvchining Ismi "
+                        placeholder="Enter Username "
                         value=""
                         required
                     />
                 </div>
 
                 <div class="login_input_container">
-                    <label for="">Password kiriting:</label>
+                    <label for="">Password:</label>
                     <input
                         style="border-radius: 50px"
                         type="password"
                         name="mb_password"
-                        placeholder="Password "
+                        placeholder="Enter Password"
                         value=""
                         required
                     />
                 </div>
             </div>
-            <button class="login_btn" name="login" type="submit">Kirish</button>
+            <button class="login_btn" name="login" type="submit">Login</button>
         </div>
     </form>
 </body>

@@ -1,19 +1,19 @@
 <%- include('includes/header') %>
 
 <body>
-  <h1>My Store Page</h1>
+    <h1>My Store Page</h1>
 
-  <% if(!member) { %>
+    <% if(!member) { %>
 
-  <h2>You are not authenticated member</h2>
-  <% } else { %>
+    <h2>You are not authenticated member</h2>
+    <% } else { %>
 
-  <h1>
-    You are authenticated member with nickname: <%= member.mb_nick%>
-    <p>You phone num: <%= member.mb_phone%></p>
-</h1>
+    <h1>
+        You are authenticated member with nickname: <%= member.mb_nick%>
+        <p>You phone num: <%= member.mb_phone%></p>
+    </h1>
 
-  <% } %>
+    <% } %>
 </body>
 
 <%- include('includes/footer') %>

@@ -4,45 +4,48 @@
 
 <body>
     <form
+        onsubmit="return validateSignUpForm()"
         class="login_container"
         action="/resto/sign-up"
         method="POST"
         enctype="multipart/form-data"
     >
-        <div class="login_frame" style="width: 650px; height: 730px">
+        <div class="login_frame" style="width: 650px; height: 740px">
             <div class="login_top">
-                <span>Ro'yhatdan o'tish</span>
+                <span>Registration</span>
                 <div>
-                    Bosh sahifaga qaytish
-                    <a href="/resto" style="color: #f5f5f5">Home</a>
+                    Back to
+                    <a href="/resto" style="color: #f5f5f5">Home</a> Page
                 </div>
                 <p>
-                    Ro'yhatdan allaqachon o'tganmisiz?
-                    <a href="/resto/login" style="color: #f5f5f5">Kirish</a>
+                    Has alraedy registered?
+                    <a href="/resto/login" style="color: #f5f5f5">Login</a>
                 </p>
             </div>
 
             <div class="sign_input_frame">
                 <div class="sign_up_frame">
-                    <label for=""> Foydalanuvchining ismi </label>
+                    <label for="">Store Username</label>
                     <input
                         style="border-radius: 50px"
                         type="text"
                         name="mb_nick"
-                        placeholder="Foydalanuvchining Ismi "
+                        class="mb_nick"
+                        placeholder="Enter Username "
                         value=""
-                        required
+                        required=""
                     />
                 </div>
                 <div class="sign_up_frame">
-                    <label for=""> Telefon raqamingiz </label>
+                    <label for="">Phone Number </label>
                     <input
                         style="border-radius: 50px"
                         type="text"
                         name="mb_phone"
-                        placeholder="Telefon raqamingiz "
+                        class="mb_phone"
+                        placeholder="Enter Phone Number "
                         value=""
-                        required
+                        required=""
                     />
                 </div>
             </div>
@@ -54,51 +57,52 @@
                         style="border-radius: 50px"
                         type="password"
                         name="mb_password"
-                        placeholder="Passwordni kiriting "
+                        class="mb_password"
+                        placeholder="Enter Password "
                         value=""
-                        required
+                        required=""
                     />
                 </div>
                 <div class="sign_up_frame">
-                    <label> Passwordni tasdiqlash </label>
+                    <label> Confirm Password</label>
                     <input
                         style="border-radius: 50px"
                         type="password"
-                        name="mb_conform_password"
-                        placeholder="Passwordni tasdiqlash"
+                        name="mb_confirm_password"
+                        class="mb_confirm_password"
+                        placeholder="Confirm Password"
                         value=""
-                        required
+                        required=""
                     />
                 </div>
             </div>
 
             <div class="login_input_frame">
-                <div class="media-frame" style="margin-top: 30px">
+                <div class="media-frame">
                     <img
                         class="upload_img_frame"
                         src="/images/default_resto.jpg"
                     />
                     <div class="upload_container">
-                        <span class="media_text">Product Photo</span>
+                        <span class="media_text">Store Image</span>
                         <div class="filebox bs3-primary preview-image">
                             <input
                                 class="upload-name"
-                                value="Rasmni tanlang"
+                                value="Choose Image"
                                 disabled="disabled"
                             />
-                            <label>Rasmni yuklash</label>
+                            <label for="input_file">Upload Image</label>
                             <input
                                 type="file"
                                 id="input_file"
                                 name="store_img"
-                                placeholder="Passwordni tasdiqlash"
                                 class="upload-hidden form-control-file store_img"
                             />
                         </div>
                         <p class="thumbnail_desc">
-                            Store rasmingizni bu yerga yuklang.<br />Muhim
-                            ko'rsatmalar: jpg, jpeg, yoki png. <br />
-                            Rasmda matn bo'lishi shart!
+                            *Remarks:<br />- Please upload Store image here.<br />-
+                            Image format: .jpg, .jpeg, or .png. <br />- Image
+                            should not contain text!
                         </p>
                     </div>
                 </div>
@@ -110,10 +114,72 @@
                 type="submit"
                 style="margin-top: 15px"
             >
-                Ro'yhatdan o'tish
+                Register
             </button>
         </div>
     </form>
 </body>
+<script>
+    $(function () {
+        let fileTarget = $(".filebox .upload-hidden");
+        let filename = "";
+
+        fileTarget.on("change", function () {
+            if (window.FileReader) {
+                const uploading_file = $(this)[0].files[0];
+                const fileType = uploading_file["type"];
+                const validImageTypes = [
+                    "image/jpg",
+                    "image/jpeg",
+                    "image/png",
+                ];
+                if (!validImageTypes.includes(fileType)) {
+                    alert(
+                        "Please upload allowed image formats: jpg, jpeg, or png!"
+                    );
+                } else {
+                    if (uploading_file) {
+                        console.log(URL.createObjectURL(uploading_file));
+                        $(".upload_img_frame")
+                            .attr("src", URL.createObjectURL(uploading_file))
+                            .addClass("success");
+                    }
+                    filename = uploading_file.name;
+                }
+            }
+
+            $(this).siblings(".upload-name").val(filename);
+        });
+    });
+
+    function validateSignUpForm() {
+        const mb_nick = $(".mb_nick").val();
+        const mb_phone = $(".mb_phone").val();
+        const mb_password = $(".mb_password").val();
+        const mb_confirm_password = $(".mb_confirm_password").val();
+        const store_img = $(".store_img").get(0).files[0] ?? null;
+
+  
+
+        if (
+            mb_nick == "" ||
+            mb_phone == "" ||
+            mb_password == "" ||
+            mb_confirm_password == ""
+        ) {
+            alert(`Please enter all fields!`);
+            return false;
+        } else if (mb_password !== mb_confirm_password) {
+            alert(`Please enter password correctly!`);
+            return false;
+        }
+        if (!store_img) {
+            alert("Please upload image!");
+            return false;
+        }
+
+        return true;
+    }
+</script>
 
 <%- include('includes/footer') %>
