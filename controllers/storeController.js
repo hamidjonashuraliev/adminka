@@ -88,8 +88,16 @@ storeController.loginProcess = async (req, res) => {
 };
 
 storeController.logout = (req, res) => {
-    console.log("GET cont/logout");
-    res.send("Logout Page");
+    try {
+        console.log("GET cont/logout");
+
+        req.session.destroy(function () {
+            res.redirect("/resto");
+        });
+    } catch (err) {
+        console.log(`ERROR, cont/logout, ${err.message}`);
+        res.json({ state: "fail", message: err.message });
+    }
 };
 
 storeController.validateAuthStore = (req, res, next) => {
