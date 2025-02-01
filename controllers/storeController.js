@@ -23,7 +23,7 @@ storeController.getMyStoreProducts = async (req, res) => {
         res.render("store-menu", { store_data: data });
     } catch (err) {
         console.log(`ERROR, cont/getMyStoreProducts, ${err.message}`);
-        res.json({ state: "fail", message: err.message });
+        res.redirect('/resto')
     }
 };
 

@@ -1,19 +1,69 @@
 <%- include('includes/header') %>
-
+<link rel="stylesheet" type="text/css" href="/css/menu.css" />
 <body>
-    <h1>My Store Page</h1>
+    <div id="main_container">
+        <div class="group_name1">
+            <ul class="nav1 justify-content-center">
+                <li class="nav-item1" style="cursor: pointer">
+                    <a class="nav-link1 active" href="./resto">Home</a>
+                </li>
+                <li class="nav-item1" style="cursor: pointer">
+                    <a class="nav-link1" href="/resto/products/menu">MyStor</a>
+                </li>
+                <li class="nav-item1" style="cursor: pointer">
+                    <a class="nav-link1" href="/resto/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+        <div class="store_menu_frame">
+            <div class="store_container">
+                <div class="accessory_table">
+                    <span class="new_accessory_txt"><%= member.mb_nick.toUpperCase() %> Products Menu
+                    </span>
+                    <table class="table table-bordered table-hover">
+                      <thead class="thead-light">
+                        <th scope="col">T/r</th>
+                        <th scope="col">Accessory nomi</th>
+                        <th scope="col">Accessory turi </th>
+                        <th scope="col">Accessory hajmi</th>
+                        <th scope="col">Accessory narxi</th>
+                        <th scope="col">Accessory qoldiq miqdori</th>
+                        <th scope="col">Accessory tavsiflari</th>
+                        <th scope="col">Accessory holati</th>
+                      </thead>
+                      <% store_data.map((value, key) => {  %>
+                        <tbody style="background: #ffff;">
+                            <td><%= key +1 %></td>
+                            <td><%= value.product_name  %></td>
+                            <td><%= value.product_collection  %></td>
+                            <td><%= value.product_collection === 'laptop' ? value.product_volume  : value.product_size %></td>
+                            <td><%= value.product_price  %></td>
+                            <td><%= value.product_left_cnt  %></td>
+                            <td><%= value.product_specs  %></td>
+                            <td>
+                                <select class="spec_select" id="<%= value._id %>">
+                                    <option value="PAUSED" <%= value.product_status === 'PAUSED' ? 'selected' : '' %> > PAUSED </option>
+                                    <option value="PROCESS" <%= value.product_status === 'PROCESS' ? 'selected' : '' %> > PROCESS </option>
+                            </select>
+                            </td>
+                            <!-- <td><%= value.product_name  %></td> -->
+                           
+                          </tbody>
+                        <% }) %> 
+                     
+                      </table>
+                </div>
 
-    <% if(!member) { %>
+                <form onsubmit="return validateForm()" action="resto/products/create" method="POST" class="accessory_container" enctype="multipart/form-data">
+                    <div class="long_input" style="align-items: flex-end; margin-bottom: 25px;">
+                        <span class="new_accessory_txt"> New Product</span>
 
-    <h2>You are not authenticated member</h2>
-    <% } else { %>
+                    </div>
 
-    <h1>
-        You are authenticated member with nickname: <%= member.mb_nick%>
-        <p>You phone num: <%= member.mb_phone%></p>
-    </h1>
-
-    <% } %>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 
 <%- include('includes/footer') %>

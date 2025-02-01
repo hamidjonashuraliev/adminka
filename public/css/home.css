@@ -9,9 +9,10 @@ body {
     background: linear-gradient(135deg, magenta, cyan);
     color: #00ff00;
     overflow: hidden;
+    
 }
 
-.nav {
+.nav { 
     display: flex;
     justify-content: center;
     align-items: center;

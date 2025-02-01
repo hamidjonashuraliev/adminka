@@ -29,7 +29,7 @@ productController.addNewProduct = async (req, res) => {
         //   console.log(data);
         const result = await product.addNewProductData(data, req.member);
         const html = `<script>
-                        alert(new smartphone added successfully);
+                        alert(new product added successfully);
                         window.location.replace('/resto/product/menu)
                       </script>`;
         res.end(html);
