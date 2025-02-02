@@ -23,6 +23,7 @@ class Product {
 
     async addNewProductData(data, member) {
         try {
+            console.log(data.product_images);
             data.store_mb_id = shapeIntoMongooseObjectId(member._id);
             console.log(data);
             const new_product = new this.productModel(data);

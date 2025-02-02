@@ -17,19 +17,19 @@
         </div>
         <div class="store_menu_frame">
             <div class="store_container">
-                <div class="accessory_table">
-                    <span class="new_accessory_txt"><%= member.mb_nick.toUpperCase() %> Products Menu
+                <div class="device_table">
+                    <span class="new_device_txt"><%= member.mb_nick.toUpperCase() %> Products Menu
                     </span>
                     <table class="table table-bordered table-hover">
                       <thead class="thead-light">
                         <th scope="col">T/r</th>
-                        <th scope="col">Accessory nomi</th>
-                        <th scope="col">Accessory turi </th>
-                        <th scope="col">Accessory hajmi</th>
-                        <th scope="col">Accessory narxi</th>
-                        <th scope="col">Accessory qoldiq miqdori</th>
-                        <th scope="col">Accessory tavsiflari</th>
-                        <th scope="col">Accessory holati</th>
+                        <th scope="col">Device Item</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Volume</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Availability Count</th>
+                        <th scope="col">Device specs</th>
+                        <th scope="col">Status</th>
                       </thead>
                       <% store_data.map((value, key) => {  %>
                         <tbody style="background: #ffff;">
@@ -41,29 +41,276 @@
                             <td><%= value.product_left_cnt  %></td>
                             <td><%= value.product_specs  %></td>
                             <td>
-                                <select class="spec_select" id="<%= value._id %>">
+                                <select class="spec_select new_product_status" id="<%= value._id %>">
                                     <option value="PAUSED" <%= value.product_status === 'PAUSED' ? 'selected' : '' %> > PAUSED </option>
                                     <option value="PROCESS" <%= value.product_status === 'PROCESS' ? 'selected' : '' %> > PROCESS </option>
                             </select>
-                            </td>
-                            <!-- <td><%= value.product_name  %></td> -->
-                           
+                            </td>                           
                           </tbody>
                         <% }) %> 
                      
                       </table>
+
+                      <div class="long_input" style="align-items: flex-end; margin-bottom: 25px;" > 
+                        <button class="btn btn-primary hiding_btn"> Add new menu item</button>
+                        </div>
                 </div>
 
-                <form onsubmit="return validateForm()" action="resto/products/create" method="POST" class="accessory_container" enctype="multipart/form-data">
-                    <div class="long_input" style="align-items: flex-end; margin-bottom: 25px;">
-                        <span class="new_accessory_txt"> New Product</span>
+                <form onsubmit="return validateForm()" action="/resto/products/create" method="POST" class="device_container" enctype="multipart/form-data">
+                    <div class="long_input" style=" display: flex; align-items: center;">
+                        <span class="new_device_txt"> New Menu Item</span>
 
                     </div>
+                   <div>
+                    <div class="long_input">
+                        <label>Name</label>
+                        <input type="text" placeholder="Device nomi" name="product_name" class="product_name">
+                    </div>
+                    <input value="PAUSED" name="product_status" class="product_status" hidden>
+                   </div>
+                    <div class="half_input_frame">
+                        <div class="half_input">
+                            <label>Price</label>
+                            <input type="number" placeholder="Device  narxi" name="product_price" class="product_price">
+                        </div>
+                        <div class="half_input">
+                            <label>Availability Count</label>
+                            <input type="number" placeholder="Device mavjud miqdori" name="product_left_cnt" class="product_left_cnt">
+                        </div>
+                    </div>
+                    <div class="half_input_frame">
+                        <div class="half_input">
+                            <label >Device Type</label>
+                            <select class="product_collection" name="product_collection" >
+                                <option value="laptop" selected>Kompyuter va ofis qurilmalari</option>
+                                <option value="smartphone">Mobil qurilmalar</option>
+                                <option value="keyboard">Ofis qurilmalari</option>
+                                <option value="mouse">Kompyuter yordamchi qurilmalari</option>
+                                <option value="charger">Quvvat zaryadlovchi</option>
+                                <option value="earbuds">Ko'chma qurilmalar(Quloqchilar)</option>
+                                <option value="accessory">Aksessuarlar</option>
+                            </select>
+                        </div>
+                        <div class="half_input" id="product_size">
+                            <label >Device Size</label>
+                            <select class="product_size" name="product_size" >
+                                <option value="inch">Dyuym</option>
+                                <option value="compact">Ixcham</option>
+                                <option value="normal">Oddiy / normal</option>
+                                <option value="large">Katta</option>
+                                <option value="tenkeyless">Raqamli klaviaturasiz (Tenkeyless)</option>
+                                <option value="full-size">To'liq o'lchamli</option>
+                                <option value="small">Kichik</option>
+                                <option value="high-power">Yuqori quvvatli</option>
+                                <option value="standart">Standart</option>
+                                <option value="over-ear">Quloqni to'liq qoplovchi (over-ear)</option>
+                            </select>
+                        </div>
+                        <div class="half_input" id="product_volume" style="display: none;">
+                            <label >Device volume</label>
+                            <select class="product_volume" name="product_volume" >
+                                <option value="cm³"> Kub santimetr (sm³)</option>
+                                <option value="WxHxD">Kenglik x Balandlik x Chuqurlik</option>
+                                <option value="W">Vatt (quvvat o'lchov birligi)</option>
+                                <option value="mAh">Milliamper-soat (batareya sig'imi o'lchov birligi)</option>
+                                <option value="dB">Dezibel (ovoz bosimi darajasi)</option>
+                                <option value="inch">Dyuym</option>
+                            </select>
+                            
+                        </div>
+                        <div class="half_input">
+                            <label >Device specs</label>
+                            <select class="product_specs" name="product_specs" >
+                                <option value="Storage"  > Saqlash hajmi / Xotira</option>
+                                <option value="CPU"  > Markaziy protsessor (CPU)</option>
+                                <option value="RAM"  > Tezkor xotira (RAM)</option>
+                                <option value="Type"  > Turi</option>
+                                <option value="Power Output"  > Quvvat chiqishi</option>
+                                <option value="Driver Size"  > Drayver o'lchami</option>
+                                <option value="Input"  >  Kirish (kiritish)</option>
+                                <option value="Capacity"  >  Sig'im</option>
+                                <option value="Connectivity"  > Ulanish imkoniyatlari</option>
+                                <option value="Bluetooth"  > Bluetooth</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="long_input">
+                        <label>About Menu Item</label>
+                        <textarea name="product_description"  class="product_description"></textarea>
+                    </div>
+                    <!-- <div class="img_frame">
+                        <label >Menu Item Pictures</label>
+                        <div class="media_frame">
+                            <div class="upload_img_box">
+                                <img src="/images/upload.svg" class="1" id="image_section_1">
+                                <input type="file" name="product_images" class="image_one"
+                                onchange="previewFileHandler(this, 1)">
+                            </div>
+                            <div class="upload_img_box">
+                                <img src="/images/upload.svg" class="2" id="image_section_2">
+                                <input type="file" name="product_images" class="image_two"
+                                onchange="previewFileHandler(this, 2)">
+                            </div>
+                            <div class="upload_img_box">
+                                <img src="/images/upload.svg" class="3" id="image_section_3">
+                                <input type="file" name="product_images" class="image_three"
+                                onchange="previewFileHandler(this, 3)">
+                            </div>
+                            <div class="upload_img_box">
+                                <img src="/images/upload.svg" class="4" id="image_section_4">
+                                <input type="file" name="product_images" class="image_four"
+                                onchange="previewFileHandler(this, 4)">
+                            </div>
+                            <div class="upload_img_box">
+                                <img src="/images/upload.svg" class="5" id="image_section_5">
+                                <input type="file" name="product_images" class="image_five"
+                                onchange="previewFileHandler(this, 5)">
+                            </div>
+                            <input value="<%= member._id%>" name="store_id" class="store_is" hidden>
+                        </div>
+                    </div> -->
 
+                    <div class="img_frame">
+                        <label>Menu Item Pictures</label>
+                        <div class="media_frame">
+                            <div class="upload_img_box">
+                                <img src="/images/upload.svg" class="upload-trigger" data-target="image_one" id="image_section_1">
+                                <input type="file" name="product_images" class="image_one" onchange="previewFileHandler(this, 1)" hidden>
+                            </div>
+                            <div class="upload_img_box">
+                                <img src="/images/upload.svg" class="upload-trigger" data-target="image_two" id="image_section_2">
+                                <input type="file" name="product_images" class="image_two" onchange="previewFileHandler(this, 2)" hidden>
+                            </div>
+                            <div class="upload_img_box">
+                                <img src="/images/upload.svg" class="upload-trigger" data-target="image_three" id="image_section_3">
+                                <input type="file" name="product_images" class="image_three" onchange="previewFileHandler(this, 3)" hidden>
+                            </div>
+                            <div class="upload_img_box">
+                                <img src="/images/upload.svg" class="upload-trigger" data-target="image_four" id="image_section_4">
+                                <input type="file" name="product_images" class="image_four" onchange="previewFileHandler(this, 4)" hidden>
+                            </div>
+                            <div class="upload_img_box">
+                                <img src="/images/upload.svg" class="upload-trigger" data-target="image_five" id="image_section_5">
+                                <input type="file" name="product_images" class="image_five" onchange="previewFileHandler(this, 5)" hidden>
+                            </div>
+                            <input value="<%= member._id%>" name="store_id" class="store_is" hidden>
+                        </div>
+                    </div>
+                    
+                    <div class="long_input" style="align-items: flex-end; margin-bottom: 25px;">
+                        <button type="submit" class="btn btn-primary" id="create_product">PRINT</button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
+
+    <script>
+        $(function() {
+
+            $(".product_collection").on("change", () => {
+                const selected_value = $(".product_collection").val();
+                if(selected_value === 'laptop') {
+                    $("#product_volume").show();
+                    $("#product_size").hide();
+                } else {
+                    $("#product_size").hide();
+                    $("#product_volume").show();
+                }
+            
+            })
+
+            $(".hiding_btn").on("click", () => {
+              $(".device_container").slideToggle(500);
+                $(".hiding_btn").css("display", "none");
+            });
+
+
+            // product status changer
+            
+            $(".new_product_status").on("change", async function (e) {
+                const id = e.target.id;
+              const product_status  = $(`#${id}.new_product_status`).val();
+            // const mb_id = '<%= member._id%>';
+
+            try {
+                const response = await axios.post(`/resto/products/edit/${id}`, {id: id, product_status: product_status} );
+                
+                const result = response.data;
+                console.log("result:", result)
+
+                if (result.state == 'success') {
+                    alert('success');
+                    location.reload();
+                
+                } else {
+                    alert(result.message)
+                }
+                    
+               
+
+            } catch (err) {
+                console.log('updateChosenProduct err: ', err);
+                
+            }
+
+                
+            })
+
+
+        });
+
+
+
+
+        function validateForm() {
+      const restaurant_mb_id = $(".restaurant_mb_id").val(),
+        product_name = $(".product_name").val(),
+        product_price = $(".product_price").val(),
+        product_left_cnt= $(".product_left_cnt").val(),
+        product_collection = $(".product_collection").val(),
+        product_description = $(".product_description").val(),
+        product_status = $(".product_status").val(),
+        product_specs = $(".product_specs").val();
+
+        if(restaurant_mb_id == '' || product_name == '' || product_price == '' || product_left_cnt == '' || 
+          product_collection == '' || product_description == '' || product_status == '' || product_specs == '' ) {
+            alert(`Please enter all fields!`);
+            return false;
+          } else return true;
+    }
+
+    function previewFileHandler(input, order) {
+        
+        const image_class_name = input.className;
+        const file = $(`.${image_class_name}`).get(0).files[0],
+        fileType = file['type'];
+        validImageTypes = ["image/jpg", "image/jpeg", "image/png"];
+
+        if(!validImageTypes.includes(fileType))  {
+            alert('Please upload allowed image formats: jpg, jpeg, or png!');
+        } else {
+            if(file) {
+                let reader = new FileReader();
+                reader.onload = function () {
+                    $(`#image_section_${order}`).attr("src", reader.result);
+
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+    }
+
+    document.querySelectorAll('.upload-trigger').forEach(img => {
+        img.addEventListener('click', function() {
+            let target = this.getAttribute('data-target'); // data-target atributini olish
+            document.querySelector(`.${target}`).click(); // Shu classdagi inputni bosish
+        });
+    });
+    </script>
+
+
 </body>
 
 <%- include('includes/footer') %>
