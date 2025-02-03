@@ -1,0 +1,61 @@
+<%- include('includes/header') %>
+<link rel="stylesheet" type="text/css" href="/css/menu.css" />
+
+<body>
+    <div id="main_container">
+        <div class="group_name">
+            <ul class="nav1 justify-content-center">
+                <li class="nav-item1" style="cursor: pointer">
+                    <a class="nav-link1 active" href="/resto">Home</a>
+                </li>
+                <li class="nav-item1" style="cursor: pointer">
+                    <a class="nav-link1" href="/resto/all-stores">All Store</a>
+                </li>
+                <li class="nav-item1" style="cursor: pointer">
+                    <a class="nav-link1" href="/resto/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="store_menu_frame">
+            <div style="margin-top: 80px" class="store_container">
+                <div class="store_table">
+                    <span class="new_store_txt"> All Store Menu </span>
+
+                    <table class="table table-bordered table-striped">
+                        <thead class="thead-light">
+                            <tr class="thead-light">
+                                <th scope="col">T/r</th>
+                                <th scope="col">Store Item</th>
+                                <th scope="col">Store Phone</th>
+                                <th scope="col">Store TOP</th>
+                                <th scope="col">Store Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody style="background: #ffffff">
+                            <td>1</td>
+                            <td>ASUS</td>
+                            <td>01077732071</td>
+                            <td style="width: 13%">
+                                <label class="switch">
+                                    <input type="checkbox" class="mb_top" />
+                                    <span class="slider around"> </span>
+                                </label>
+                            </td>
+                            <td style="width: 13%">
+                                <select class="spec_select mb_status">
+                                    <option value="ONPAUSE">ONPAUSE</option>
+                                    <option value="ACTIVE">ACTIVE</option>
+                                    <option value="DELETED">DELETED</option>
+                                </select>
+                            </td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<%- include('includes/footer') %>

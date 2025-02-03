@@ -23,7 +23,7 @@ storeController.getMyStoreProducts = async (req, res) => {
         res.render("store-menu", { store_data: data });
     } catch (err) {
         console.log(`ERROR, cont/getMyStoreProducts, ${err.message}`);
-        res.redirect('/resto')
+        res.redirect("/resto");
     }
 };
 
@@ -78,7 +78,7 @@ storeController.loginProcess = async (req, res) => {
         req.session.member = result;
         req.session.save(function () {
             result.mb_type === "ADMIN"
-                ? res.redirect("/resto/all_store")
+                ? res.redirect("/resto/all-stores")
                 : res.redirect("/resto/products/menu");
         });
     } catch (err) {
@@ -101,7 +101,6 @@ storeController.logout = (req, res) => {
 };
 
 storeController.validateAuthStore = (req, res, next) => {
-    const session = req.session;
     if (req.session?.member?.mb_type === "STORE") {
         req.member = req.session.member;
 
@@ -109,7 +108,7 @@ storeController.validateAuthStore = (req, res, next) => {
     } else
         res.json({
             state: "fail",
-            message: "only authenticated members with store type",
+            message: "only authenticated members with store type"
         });
 };
 
@@ -117,6 +116,31 @@ storeController.checkSessions = (req, res) => {
     if (req.session?.member) {
         res.json({ state: "succeed", data: req.session.member });
     } else {
-        res.json({ state: "fail", message: "you are not authenticated" });
+        res.json({ state: "fail", message: "Admin page: Permission denied" });
+    }
+};
+
+storeController.validateAdmin = (req, res, next) => {
+    if (req.session?.member?.mb_type === "ADMIN") {
+        req.member = req.session.member;
+        next();
+    } else {
+        const html = `<script> 
+     alert("Admin page: Permission denied!");
+      window.location.replace('/resto');
+     </script>`;
+        res.end(html);
+    }
+};
+
+storeController.getAllStores = async  (req, res) => {
+    try {
+        console.log("GET  cont/getAllStores");
+        //todo:  all stores retrive
+
+        res.render("all-stores");
+    } catch (err) {
+        console.log(`ERROR, cont/getAllStores, ${err.message}`);
+        res.json({ state: "fail", message: err.message });
     }
 };

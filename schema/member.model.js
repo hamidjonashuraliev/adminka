@@ -55,6 +55,7 @@ const memberSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
+    
     mb_point: {
         type: Number,
         required: false,

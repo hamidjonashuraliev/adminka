@@ -1,6 +1,6 @@
 .store_menu_frame {
     position: relative;
-    padding-bottom: 80px;
+    padding-bottom: 100px;
     width: 100%;
     height: auto;
 
@@ -8,6 +8,14 @@
     flex-direction: column;
     align-items: center;
     background: #2c261e;
+}
+.group_name {
+    z-index: 10000;
+    position: absolute;
+    top: 1%;
+    color: #efefee;
+    font-size: x-large;
+    font-family: monospace;
 }
 
 .store_menu_frame .store_container {
@@ -39,20 +47,95 @@
     color: #ffff;
     margin-bottom: 30px;
 }
+
+.new_store_txt {
+    font-family: "source serif pro";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 25px;
+    color: #ffff;
+    margin-bottom: 30px;
+}
+
+.store_container .store_table {
+    position: relative;
+    width: 80%;
+    height: auto;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 28px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #b0bec5, #78909c);
+    transition: 0.4s;
+    border-radius: 34px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background: white;
+    border-radius: 50%;
+    transition: 0.4s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Tugma faollashganda */
+input:checked + .slider {
+    background: linear-gradient(135deg, #2196f3, #64b5f6);
+    box-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
+}
+
+input:checked + .slider:before {
+    transform: translateX(32px);
+}
+
+/* Tugma bosilganda kichik effekt */
+.slider:active:before {
+    width: 26px;
+}
+
 .spec_select {
     position: relative;
     padding: 0px 7px;
-    /* width: 100%; */
+    /* width: 80%; */
     height: 27px;
-    background: #ffffff;
-    border: 1px solid #dddddd;
+    background: #2c261e;
+    border: 2px solid cyan;
     border-radius: 8px;
     font-family: "Gt Walsheis Pro";
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
     line-height: 26px;
-    color: #4f547b;
+    color: #ffffff;
 }
 .store_container .device_container {
     position: relative;
@@ -74,14 +157,6 @@
     flex-direction: column;
 }
 
-.new_device_txt {
-    font-family: "Source Serif Pro";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 25px;
-    color: #ffffff;
-}
 .long_input {
     position: relative;
     margin-top: 25px;
@@ -262,4 +337,3 @@
     height: 100%;
     cursor: pointer;
 }
-

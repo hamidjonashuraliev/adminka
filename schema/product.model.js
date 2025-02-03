@@ -94,7 +94,13 @@ const productSchema = new mongoose.Schema(
 ); //createdAt, updatedAt
 
 productSchema.index(
-    { store_mb_id: 1, product_name: 1, product_size: 1, product_volume: 1, product_specs: 1 },
+    {
+        store_mb_id: 1,
+        product_name: 1,
+        product_size: 1,
+        product_volume: 1,
+        product_specs: 1,
+    },
     { unique: true }
 );
 module.exports = mongoose.model("Product", productSchema);
