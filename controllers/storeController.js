@@ -91,7 +91,6 @@ storeController.loginProcess = async (req, res) => {
 storeController.logout = (req, res) => {
     try {
         console.log("GET cont/logout");
-
         req.session.destroy(function () {
             res.redirect("/resto");
         });
@@ -136,13 +135,9 @@ storeController.validateAdmin = (req, res, next) => {
 storeController.getAllStores = async (req, res) => {
     try {
         console.log("GET  cont/getAllStores");
-
         const store = new Store();
         const stores_data = await store.getAllStoresData();
         res.render("all-stores", { stores_data: stores_data });
-        console.log("stores_data:", stores_data);
-        
-
     } catch (err) {
         console.log(`ERROR, cont/getAllStores, ${err.message}`);
         res.json({ state: "fail", message: err.message });
@@ -152,12 +147,11 @@ storeController.getAllStores = async (req, res) => {
 storeController.updateStoreByAdmin = async (req, res) => {
     try {
         console.log("POST  cont/updateStoreByAdmin");
-
         const store = new Store();
         const result = await store.updateStoreByAdminData(req.body);
-        await res.json({state: "success", data: result});
+        await res.json({ state: "success", data: result });
     } catch (err) {
         console.log(`ERROR, cont/updateStoreByAdmin, ${err.message}`);
         res.json({ state: "fail", message: err.message });
     }
-}
+};

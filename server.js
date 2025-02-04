@@ -1,4 +1,4 @@
-const { log } = require("console");
+
 const dotenv = require("dotenv");
 dotenv.config();
 
