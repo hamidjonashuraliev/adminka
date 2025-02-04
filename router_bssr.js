@@ -42,5 +42,10 @@ router_bssr.get(
     storeController.validateAdmin,
     storeController.getAllStores
 );
+router_bssr.post(
+    "/all-stores/edit",
+    storeController.validateAdmin,
+    storeController.updateStoreByAdmin
+);
 
 module.exports = router_bssr;

@@ -148,3 +148,16 @@ storeController.getAllStores = async (req, res) => {
         res.json({ state: "fail", message: err.message });
     }
 };
+
+storeController.updateStoreByAdmin = async (req, res) => {
+    try {
+        console.log("POST  cont/updateStoreByAdmin");
+
+        const store = new Store();
+        const result = await store.updateStoreByAdminData(req.body);
+        await res.json({state: "success", data: result});
+    } catch (err) {
+        console.log(`ERROR, cont/updateStoreByAdmin, ${err.message}`);
+        res.json({ state: "fail", message: err.message });
+    }
+}
