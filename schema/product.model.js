@@ -4,7 +4,7 @@ const {
     product_status_enums,
     product_size_enums,
     product_volume_enums,
-    product_specs_enums,
+    product_specs_enums
 } = require("../lib/config");
 
 const Schema = mongoose.Schema;
@@ -17,8 +17,8 @@ const productSchema = new mongoose.Schema(
             reuired: true,
             enum: {
                 values: product_collection_enums,
-                message: "{VALUE} is not among permitted enum values",
-            },
+                message: "{VALUE} is not among permitted enum values"
+            }
         },
         product_status: {
             type: String,
@@ -26,21 +26,21 @@ const productSchema = new mongoose.Schema(
             default: "PAUSED",
             enum: {
                 values: product_status_enums,
-                message: "{VALUE} is not among permitted enum values}",
-            },
+                message: "{VALUE} is not among permitted enum values}"
+            }
         },
         product_price: {
             type: Number,
-            required: true,
+            required: true
         },
         product_discount: {
             type: Number,
             required: false,
-            default: 0,
+            default: 0
         },
         product_left_cnt: {
             type: Number,
-            required: true,
+            required: true
         },
         product_size: {
             type: String,
@@ -51,14 +51,14 @@ const productSchema = new mongoose.Schema(
                     "keyboard",
                     "mouse",
                     "charger",
-                    "earbuds",
+                    "earbuds"
                 ];
                 return sized_list.includes(this.product_collection);
             },
             enum: {
                 values: product_size_enums,
-                message: "{VALUE} is not among permitted enum values}",
-            },
+                message: "{VALUE} is not among permitted enum values}"
+            }
         },
         product_volume: {
             type: String,
@@ -68,8 +68,8 @@ const productSchema = new mongoose.Schema(
             },
             enum: {
                 values: product_volume_enums,
-                message: "{VALUE} is not among permitted enum values}",
-            },
+                message: "{VALUE} is not among permitted enum values}"
+            }
         },
         product_specs: {
             type: String,
@@ -77,8 +77,8 @@ const productSchema = new mongoose.Schema(
             required: true, //todo
             enum: {
                 values: product_specs_enums,
-                message: "{VALUE} is not among permitted enum values}",
-            },
+                message: "{VALUE} is not among permitted enum values}"
+            }
         },
         product_description: { type: String, required: true },
         product_images: { Array, required: false, default: [] },
@@ -87,8 +87,8 @@ const productSchema = new mongoose.Schema(
         store_mb_id: {
             type: Schema.Types.ObjectId,
             ref: "Member",
-            required: false,
-        },
+            required: false
+        }
     },
     { timestamps: true }
 ); //createdAt, updatedAt
@@ -99,7 +99,7 @@ productSchema.index(
         product_name: 1,
         product_size: 1,
         product_volume: 1,
-        product_specs: 1,
+        product_specs: 1
     },
     { unique: true }
 );

@@ -2,6 +2,7 @@ const assert = require("assert");
 const Member = require("../models/Member");
 const Product = require("../models/Product");
 const Definer = require("../lib/mistake");
+const Store = require("../models/Store");
 
 let storeController = module.exports;
 
@@ -103,7 +104,6 @@ storeController.logout = (req, res) => {
 storeController.validateAuthStore = (req, res, next) => {
     if (req.session?.member?.mb_type === "STORE") {
         req.member = req.session.member;
-
         next();
     } else
         res.json({
@@ -133,12 +133,16 @@ storeController.validateAdmin = (req, res, next) => {
     }
 };
 
-storeController.getAllStores = async  (req, res) => {
+storeController.getAllStores = async (req, res) => {
     try {
         console.log("GET  cont/getAllStores");
-        //todo:  all stores retrive
 
-        res.render("all-stores");
+        const store = new Store();
+        const stores_data = await store.getAllStoresData();
+        res.render("all-stores", { stores_data: stores_data });
+        console.log("stores_data:", stores_data);
+        
+
     } catch (err) {
         console.log(`ERROR, cont/getAllStores, ${err.message}`);
         res.json({ state: "fail", message: err.message });

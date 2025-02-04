@@ -37,9 +37,10 @@ router_bssr.post(
     storeController.validateAuthStore,
     productController.updateChosenProduct
 );
- router_bssr.get("/all-stores", 
+router_bssr.get(
+    "/all-stores",
     storeController.validateAdmin,
-     storeController.getAllStores);
-
+    storeController.getAllStores
+);
 
 module.exports = router_bssr;

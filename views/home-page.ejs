@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="css/home.css" />
 
 <body>
-    <div class="group_name" style="position:relative;">
+    <div class="group_name" style="position: relative">
         <ul class="nav justify-content-center">
             <li class="nav-item" style="cursor: pointer">
                 <a class="nav-link active" href="./resto">Home</a>
@@ -18,7 +18,7 @@
             </li>
             <% } else if(member.mb_type === 'ADMIN') { %>
             <li class="nav-item" style="cursor: pointer">
-                <a class="nav-link" href="/resto/all-stores">AllResto</a>
+                <a class="nav-link" href="/resto/all-stores">All Store</a>
             </li>
             <li
                 class="nav-item"
@@ -29,7 +29,7 @@
             </li>
             <% } else { %>
             <li class="nav-item" style="cursor: pointer">
-                <a class="nav-link" href="/resto/products/menu">MyStor</a>
+                <a class="nav-link" href="/resto/products/menu">MyStore</a>
             </li>
             <li
                 class="nav-item"
@@ -80,7 +80,7 @@
             sec.style.transform = "rotate(" + secDeg + "deg)";
         }
 
-        setInterval("calcTime()", 100);
+        setInterval(calcTime, 100);
     </script>
 </body>
 
