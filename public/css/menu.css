@@ -125,7 +125,6 @@ input:checked + .slider:before {
 .spec_select {
     position: relative;
     padding: 0px 7px;
-    /* width: 80%; */
     height: 27px;
     background: #2c261e;
     border: 2px solid cyan;

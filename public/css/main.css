@@ -12,12 +12,6 @@ body {
     background: #2c261e;
     align-items: center;
 }
-
-/* a {
-    text-decoration: none;
-    color: aqua;
-} */
-
 .group_name1 {
     z-index: 10000;
     position: absolute;
@@ -30,10 +24,8 @@ body {
 .nav1 {
     display: flex;
     justify-content: center;
-    /* list-style-type: none; */
     padding: 0;
     margin: 0;
-    /* background: rgb(81, 206, 228); */
     border-radius: 10px;
     position: relative;
     top: 20px;

@@ -5,7 +5,6 @@ const Definer = require("../lib/mistake");
 const Store = require("../models/Store");
 
 let storeController = module.exports;
-
 storeController.home = (req, res) => {
     try {
         console.log("GET: cont/home");
@@ -15,7 +14,6 @@ storeController.home = (req, res) => {
         res.json({ state: "fail", message: err.message });
     }
 };
-
 storeController.getMyStoreProducts = async (req, res) => {
     try {
         console.log("GET: cont/getMyStoreProducts");
@@ -27,7 +25,6 @@ storeController.getMyStoreProducts = async (req, res) => {
         res.redirect("/resto");
     }
 };
-
 storeController.getSignupMyStore = async (req, res) => {
     try {
         console.log("GET: cont/getSignupMyStore");
@@ -37,7 +34,6 @@ storeController.getSignupMyStore = async (req, res) => {
         res.json({ state: "fail", message: err.message });
     }
 };
-
 storeController.signupProcess = async (req, res) => {
     try {
         console.log("POST: cont/signupProcess");
@@ -58,7 +54,6 @@ storeController.signupProcess = async (req, res) => {
         res.json({ state: "fail", message: err.message });
     }
 };
-
 storeController.getLoginMyStore = async (req, res) => {
     try {
         console.log("GET: cont/getLoginMyStore");
@@ -68,7 +63,6 @@ storeController.getLoginMyStore = async (req, res) => {
         res.json({ state: "fail", message: err.message });
     }
 };
-
 storeController.loginProcess = async (req, res) => {
     try {
         console.log("POST: cont/loginProcess");
@@ -87,7 +81,6 @@ storeController.loginProcess = async (req, res) => {
         res.json({ state: "fail", message: err.message });
     }
 };
-
 storeController.logout = (req, res) => {
     try {
         console.log("GET cont/logout");
@@ -99,7 +92,6 @@ storeController.logout = (req, res) => {
         res.json({ state: "fail", message: err.message });
     }
 };
-
 storeController.validateAuthStore = (req, res, next) => {
     if (req.session?.member?.mb_type === "STORE") {
         req.member = req.session.member;
@@ -110,7 +102,6 @@ storeController.validateAuthStore = (req, res, next) => {
             message: "only authenticated members with store type"
         });
 };
-
 storeController.checkSessions = (req, res) => {
     if (req.session?.member) {
         res.json({ state: "succeed", data: req.session.member });
@@ -118,7 +109,6 @@ storeController.checkSessions = (req, res) => {
         res.json({ state: "fail", message: "Admin page: Permission denied" });
     }
 };
-
 storeController.validateAdmin = (req, res, next) => {
     if (req.session?.member?.mb_type === "ADMIN") {
         req.member = req.session.member;
@@ -131,7 +121,6 @@ storeController.validateAdmin = (req, res, next) => {
         res.end(html);
     }
 };
-
 storeController.getAllStores = async (req, res) => {
     try {
         console.log("GET  cont/getAllStores");
@@ -143,7 +132,6 @@ storeController.getAllStores = async (req, res) => {
         res.json({ state: "fail", message: err.message });
     }
 };
-
 storeController.updateStoreByAdmin = async (req, res) => {
     try {
         console.log("POST  cont/updateStoreByAdmin");

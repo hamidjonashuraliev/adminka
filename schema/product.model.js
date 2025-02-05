@@ -81,7 +81,7 @@ const productSchema = new mongoose.Schema(
             }
         },
         product_description: { type: String, required: true },
-        product_images: { Array, required: false, default: [] },
+        product_images: { type: Array, required: false, default: [] },
         product_likes: { type: Number, required: false, default: 0 },
         product_views: { type: Number, required: false, default: 0 },
         store_mb_id: {

@@ -7,7 +7,6 @@ class Member {
     constructor() {
         this.memberModel = MemberModel;
     }
-
     async signupData(input) {
         try {
             const salt = await bcrypt.genSalt();

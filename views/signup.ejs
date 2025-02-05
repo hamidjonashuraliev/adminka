@@ -1,6 +1,6 @@
 <%- include('includes/header') %>
 
-<link rel="stylesheet" type="text/css" href="/css/login.css" />
+<link rel="stylesheet" type="text/css" href="/css/sign-up.css" />
 
 <body>
     <form
@@ -10,24 +10,23 @@
         method="POST"
         enctype="multipart/form-data"
     >
-        <div class="login_frame" style="width: 650px; height: 740px">
+        <div class="login_frame">
             <div class="login_top">
-                <span>Registration</span>
                 <div>
-                    Back to
-                    <a href="/resto" style="color: #f5f5f5">Home</a> Page
+                    <span>Registration</span>
+                    <div class="top">
+                        <p>Back to <a href="/resto">Home</a> Page</p>
+                        <p>
+                            Has alraedy registered?
+                            <a href="/resto/login">Login</a>
+                        </p>
+                    </div>
                 </div>
-                <p>
-                    Has alraedy registered?
-                    <a href="/resto/login" style="color: #f5f5f5">Login</a>
-                </p>
             </div>
-
             <div class="sign_input_frame">
                 <div class="sign_up_frame">
-                    <label for="">Store Username</label>
+                    <label tabindex="0" for="">Store Username</label>
                     <input
-                        style="border-radius: 50px"
                         type="text"
                         name="mb_nick"
                         class="mb_nick"
@@ -37,9 +36,8 @@
                     />
                 </div>
                 <div class="sign_up_frame">
-                    <label for="">Phone Number </label>
+                    <label tabindex="0" for="">Phone Number </label>
                     <input
-                        style="border-radius: 50px"
                         type="text"
                         name="mb_phone"
                         class="mb_phone"
@@ -52,9 +50,8 @@
 
             <div class="sign_input_frame">
                 <div class="sign_up_frame">
-                    <label for=""> Password </label>
+                    <label tabindex="0" for=""> Password </label>
                     <input
-                        style="border-radius: 50px"
                         type="password"
                         name="mb_password"
                         class="mb_password"
@@ -64,9 +61,8 @@
                     />
                 </div>
                 <div class="sign_up_frame">
-                    <label> Confirm Password</label>
+                    <label tabindex="0"> Confirm Password</label>
                     <input
-                        style="border-radius: 50px"
                         type="password"
                         name="mb_confirm_password"
                         class="mb_confirm_password"
@@ -77,7 +73,7 @@
                 </div>
             </div>
 
-            <div class="login_input_frame">
+            <div class="sign_up_input_frame">
                 <div class="media-frame">
                     <img
                         class="upload_img_frame"
@@ -97,6 +93,7 @@
                                 id="input_file"
                                 name="store_img"
                                 class="upload-hidden form-control-file store_img"
+                                style="display: none"
                             />
                         </div>
                         <p class="thumbnail_desc">

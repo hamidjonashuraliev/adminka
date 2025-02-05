@@ -2,24 +2,18 @@
 <link rel="stylesheet" type="text/css" href="/css/login.css" />
 <body>
     <form class="login_container" action="/resto/login" method="POST">
-        <div class="login_frame" style="height: 460px">
+        <div class="login_frame">
             <div class="login_top">
-                <span>Login to Page</span>
-                <div>
-                    Back to
-                    <a href="/resto" style="color: #f5f5f5">Home</a> Page
-                </div>
-                <p>
-                    Not yet signed up?
-                    <a href="/resto/sign-up" style="color: #f5f5f5">Sign up</a>
-                </p>
+                <span tabindex="0">Login to Page</span>
             </div>
-
+            <div class="top">
+                <p>Back to <a href="/resto">Home</a> Page</p>
+                <p>Not yet signed up? <a href="/resto/sign-up">Sign up</a></p>
+            </div>
             <div class="login_input_frame">
                 <div class="login_input_container">
-                    <label>Username: </label>
+                    <label tabindex="0">Username: </label>
                     <input
-                        style="border-radius: 50px"
                         type="text"
                         name="mb_nick"
                         placeholder="Enter Username "
@@ -27,11 +21,9 @@
                         required
                     />
                 </div>
-
                 <div class="login_input_container">
-                    <label>Password:</label>
+                    <label tabindex="0">Password:</label>
                     <input
-                        style="border-radius: 50px"
                         type="password"
                         name="mb_password"
                         placeholder="Enter Password"
