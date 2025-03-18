@@ -18,7 +18,7 @@ storeController.getMyStoreProducts = async (req, res) => {
     try {
         console.log("GET: cont/getMyStoreProducts");
         const product = new Product();
-        const data = await product.getAllProductsDataStor(res.locals.member);
+        const data = await product.getAllProductsDataStor(req.member);
         res.render("store-menu", { store_data: data });
     } catch (err) {
         console.log(`ERROR, cont/getMyStoreProducts, ${err.message}`);
@@ -114,7 +114,7 @@ storeController.validateAdmin = (req, res, next) => {
         req.member = req.session.member;
         next();
     } else {
-        const html = `<script> 
+        const html = `<script>
      alert("Admin page: Permission denied!");
       window.location.replace('/resto');
      </script>`;

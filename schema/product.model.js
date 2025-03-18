@@ -51,7 +51,10 @@ const productSchema = new mongoose.Schema(
                     "keyboard",
                     "mouse",
                     "charger",
-                    "earbuds"
+                    "headphone",
+                    "usb",
+                    "vr",
+                    "airpods"
                 ];
                 return sized_list.includes(this.product_collection);
             },
@@ -64,7 +67,12 @@ const productSchema = new mongoose.Schema(
             type: String,
             default: 1,
             required: function () {
-                return this.product_collection === "laptop";
+                return (
+                    this.product_collection === "laptop",
+                    "monitor",
+                    "planshet",
+                    "watch"
+                );
             },
             enum: {
                 values: product_volume_enums,

@@ -3,178 +3,211 @@
 <link rel="stylesheet" type="text/css" href="/css/sign-up.css" />
 
 <body>
-    <form
-        onsubmit="return validateSignUpForm()"
-        class="login_container"
-        action="/resto/sign-up"
-        method="POST"
-        enctype="multipart/form-data"
-    >
-        <div class="login_frame">
-            <div class="login_top">
-                <div>
-                    <span>Registration</span>
-                    <div class="top">
-                        <p>Back to <a href="/resto">Home</a> Page</p>
-                        <p>
-                            Has alraedy registered?
-                            <a href="/resto/login">Login</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="sign_input_frame">
-                <div class="sign_up_frame">
-                    <label tabindex="0" for="">Store Username</label>
-                    <input
-                        type="text"
-                        name="mb_nick"
-                        class="mb_nick"
-                        placeholder="Enter Username "
-                        value=""
-                        required=""
-                    />
-                </div>
-                <div class="sign_up_frame">
-                    <label tabindex="0" for="">Phone Number </label>
-                    <input
-                        type="text"
-                        name="mb_phone"
-                        class="mb_phone"
-                        placeholder="Enter Phone Number "
-                        value=""
-                        required=""
-                    />
-                </div>
-            </div>
-
-            <div class="sign_input_frame">
-                <div class="sign_up_frame">
-                    <label tabindex="0" for=""> Password </label>
-                    <input
-                        type="password"
-                        name="mb_password"
-                        class="mb_password"
-                        placeholder="Enter Password "
-                        value=""
-                        required=""
-                    />
-                </div>
-                <div class="sign_up_frame">
-                    <label tabindex="0"> Confirm Password</label>
-                    <input
-                        type="password"
-                        name="mb_confirm_password"
-                        class="mb_confirm_password"
-                        placeholder="Confirm Password"
-                        value=""
-                        required=""
-                    />
-                </div>
-            </div>
-
-            <div class="sign_up_input_frame">
-                <div class="media-frame">
-                    <img
-                        class="upload_img_frame"
-                        src="/images/default_resto.jpg"
-                    />
-                    <div class="upload_container">
-                        <span class="media_text">Store Image</span>
-                        <div class="filebox bs3-primary preview-image">
-                            <input
-                                class="upload-name"
-                                value="Choose Image"
-                                disabled="disabled"
-                            />
-                            <label for="input_file">Upload Image</label>
-                            <input
-                                type="file"
-                                id="input_file"
-                                name="store_img"
-                                class="upload-hidden form-control-file store_img"
-                                style="display: none"
-                            />
-                        </div>
-                        <p class="thumbnail_desc">
-                            *Remarks:<br />- Please upload Store image here.<br />-
-                            Image format: .jpg, .jpeg, or .png. <br />- Image
-                            should not contain text!
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <button
-                class="login_btn"
-                name="signup"
-                type="submit"
-                style="margin-top: 15px"
-            >
-                Register
-            </button>
+  <form
+    onsubmit="return validateSignUpForm()"
+    class="sign_up_container"
+    action="/resto/sign-up"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <div class="sign_up_frame_box">
+      <div class="sign_up_top">
+        <span>Registration</span>
+        <div class="top">
+          <p>Back to <a href="/resto">Home</a> Page</p>
+          <p>
+            Has alraedy registered?
+            <a href="/resto/login">Login</a>
+          </p>
         </div>
-    </form>
+      </div>
+      <div class="sign_up_input_frame">
+        <div class="sign_up_frame">
+          <label tabindex="0" for="">Store Username</label>
+          <input
+            type="text"
+            name="mb_nick"
+            class="mb_nick"
+            placeholder="Enter Username "
+            value=""
+            required=""
+          />
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="sign_up_frame">
+          <label tabindex="0" for="">Phone Number </label>
+          <input
+            type="text"
+            name="mb_phone"
+            class="mb_phone"
+            placeholder="Enter Phone Number "
+            value=""
+            required=""
+          />
+        </div>
+      </div>
+
+      <div class="sign_up_input_frame">
+        <div class="sign_up_frame">
+          <label tabindex="0" for=""> Password </label>
+          <input
+            type="password"
+            name="mb_password"
+            class="mb_password"
+            placeholder="Enter Password "
+            value=""
+            required=""
+          />
+        </div>
+        <div class="sign_up_frame">
+          <label tabindex="0"> Confirm Password</label>
+          <input
+            type="password"
+            name="mb_confirm_password"
+            class="mb_confirm_password"
+            placeholder="Confirm Password"
+            value=""
+            required=""
+          />
+        </div>
+      </div>
+
+      <div class="sign_up_input_frame">
+        <div class="media-frame">
+          <img class="upload_img_frame" src="/images/default_resto.png" />
+          <div class="upload_container">
+            <span class="media_text">Store Image</span>
+
+            <div class="box">
+              <div class="filebox bs3-primary preview-image">
+                <input
+                  class="upload-name"
+                  value="Choose Image"
+                  disabled="disabled"
+                />
+
+                <label for="input_file">Upload Image</label>
+                <input
+                  type="file"
+                  id="input_file"
+                  name="store_img"
+                  class="upload-hidden form-control-file store_img"
+                />
+              </div>
+            </div>
+            <p class="thumbnail_desc">
+              *Remarks:<br />- Please upload Store image here.<br />- Image
+              format: .jpg, .jpeg, or .png. <br />- Image should not contain
+              text!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="sign_up_btn"
+        name="sign_up"
+        type="submit"
+        style="margin-top: 25px"
+      >
+        Register
+      </button>
+    </div>
+  </form>
+
+  <div id="wrapper" ontouchstart="">
+    <video autoplay="autoplay" muted="muted" preload="auto">
+      <source src="https://i.imgur.com/gwV9AqQ.mp4" type="video/mp4" />
+    </video>
+    <svg
+      id="svg"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1002.7 180.6"
+    ></svg>
+  </div>
+
+  <script>
+    // js for: Start text stroke animation at the same time when the video starts
+    var let = document.querySelector("video");
+    var svgWords = document.getElementsByClassName("svgWords");
+
+    let.addEventListener(
+      "playing",
+      function () {
+        for (var i = 0; i < svgWords.length; i++) {
+          svgWords[i].classList.remove("run-animation");
+        }
+        window.setTimeout(function () {
+          for (var i = 0; i < svgWords.length; i++) {
+            svgWords[i].classList.add("run-animation");
+          }
+        }, 60);
+      },
+      false
+    );
+
+    let.addEventListener(
+      "ended",
+      function () {
+        let.play();
+      },
+      false
+    );
+  </script>
 </body>
 <script>
-    $(function () {
-        let fileTarget = $(".filebox .upload-hidden");
-        let filename = "";
+  $(function () {
+    let fileTarget = $(".filebox .upload-hidden");
+    let filename = "";
 
-        fileTarget.on("change", function () {
-            if (window.FileReader) {
-                const uploading_file = $(this)[0].files[0];
-                const fileType = uploading_file["type"];
-                const validImageTypes = [
-                    "image/jpg",
-                    "image/jpeg",
-                    "image/png"
-                ];
-                if (!validImageTypes.includes(fileType)) {
-                    alert(
-                        "Please upload allowed image formats: jpg, jpeg, or png!"
-                    );
-                } else {
-                    if (uploading_file) {
-                        console.log(URL.createObjectURL(uploading_file));
-                        $(".upload_img_frame")
-                            .attr("src", URL.createObjectURL(uploading_file))
-                            .addClass("success");
-                    }
-                    filename = uploading_file.name;
-                }
-            }
+    fileTarget.on("change", function () {
+      if (window.FileReader) {
+        const uploading_file = $(this)[0].files[0];
+        const fileType = uploading_file["type"];
+        const validImageTypes = ["image/jpg", "image/jpeg", "image/png"];
+        if (!validImageTypes.includes(fileType)) {
+          alert("Please upload allowed image formats: jpg, jpeg, or png!");
+        } else {
+          if (uploading_file) {
+            console.log(URL.createObjectURL(uploading_file));
+            $(".upload_img_frame")
+              .attr("src", URL.createObjectURL(uploading_file))
+              .addClass("success");
+          }
+          filename = uploading_file.name;
+        }
+      }
 
-            $(this).siblings(".upload-name").val(filename);
-        });
+      $(this).siblings(".upload-name").val(filename);
     });
+  });
 
-    function validateSignUpForm() {
-        const mb_nick = $(".mb_nick").val();
-        const mb_phone = $(".mb_phone").val();
-        const mb_password = $(".mb_password").val();
-        const mb_confirm_password = $(".mb_confirm_password").val();
-        const store_img = $(".store_img").get(0).files[0] ?? null;
+  function validateSignUpForm() {
+    const mb_nick = $(".mb_nick").val();
+    const mb_phone = $(".mb_phone").val();
+    const mb_password = $(".mb_password").val();
+    const mb_confirm_password = $(".mb_confirm_password").val();
+    const store_img = $(".store_img").get(0).files[0] ?? null;
 
-        if (
-            mb_nick == "" ||
-            mb_phone == "" ||
-            mb_password == "" ||
-            mb_confirm_password == ""
-        ) {
-            alert(`Please enter all fields!`);
-            return false;
-        } else if (mb_password !== mb_confirm_password) {
-            alert(`Please enter password correctly!`);
-            return false;
-        }
-        if (!store_img) {
-            alert("Please upload image!");
-            return false;
-        }
-
-        return true;
+    if (
+      mb_nick == "" ||
+      mb_phone == "" ||
+      mb_password == "" ||
+      mb_confirm_password == ""
+    ) {
+      alert(`Please enter all fields!`);
+      return false;
+    } else if (mb_password !== mb_confirm_password) {
+      alert(`Please enter password correctly!`);
+      return false;
     }
+    if (!store_img) {
+      alert("Please upload image!");
+      return false;
+    }
+
+    return true;
+  }
 </script>
 
 <%- include('includes/footer') %>

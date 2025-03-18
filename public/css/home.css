@@ -6,17 +6,16 @@ body {
     margin: 0;
     justify-content: center;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, magenta, cyan);
+    background: linear-gradient(135deg, #ffb8d0, #6a9cfd);
     color: #00ff00;
     overflow: hidden;
-    
 }
 
-.nav { 
+.nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg, cyan, magenta);
+    background: linear-gradient(45deg, #52d0a1, #ef5c76);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     border-radius: 50px;

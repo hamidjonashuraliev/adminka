@@ -20,10 +20,10 @@ memberController.signup = async (req, res) => {
 
 memberController.login = async (req, res) => {
     try {
-        console.log("POST: cont/login"),
-            (data = req.body),
-            (member = new Member()),
-            (result = await member.loginData(data));
+        console.log("POST: cont/login");
+            const data = req.body,
+            member = new Member(),
+            result = await member.loginData(data);
 
         res.json({ state: "succeed", data: result });
     } catch (err) {
