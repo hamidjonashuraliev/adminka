@@ -64,18 +64,18 @@
                    <div>
                     <div class="long_input">
                         <label>Name</label>
-                        <input type="text" placeholder="Device nomi" name="product_name" class="product_name">
+                        <input type="text" placeholder="Device name" name="product_name" class="product_name">
                     </div>
                     <input value="PAUSED" name="product_status" class="product_status" hidden>
                    </div>
                     <div class="half_input_frame">
                         <div class="half_input">
                             <label>Price</label>
-                            <input type="number" placeholder="Device  narxi" name="product_price" class="product_price">
+                            <input type="number" placeholder="Device  price" name="product_price" class="product_price">
                         </div>
                         <div class="half_input">
                             <label>Availability Count</label>
-                            <input type="number" placeholder="Device mavjud miqdori" name="product_left_cnt" class="product_left_cnt">
+                            <input type="number" placeholder="Device left_cnt" name="product_left_cnt" class="product_left_cnt">
                         </div>
                     </div>
                     <div class="half_input_frame">
@@ -106,76 +106,87 @@
                                 <option value="inch 8-12">Planshet </option>
                                 <option value="inch 1.4-1.6">Watch </option>
 
-                                <option value="compact ">Watch: Compact </option>
-                                <option value="large ">large: Compact </option>
-                                <option value="normal ">Planshet: Compact </option>
-                                <option value="compact ">Watch: Compact </option>
+                                <option value="compact">Watch: Compact </option>
+                                <option value="large">Large: Compact </option>
+                                <option value="normal">Planshet: Compact </option>
+                                <option value="compact">Watch: Compact </option>
                             </select>
                         </div>
 
                         <div class="half_input" id="product_volume" style="display: none;">
                             <label >Device volume</label>
                             <select class="product_volume" name="product_volume" >
-                                <option value="84(sm³) ">Smartphone:  Compact</option>
-                                <option value="42(sm³) ">Keyboard:  Tenkeyless</option>
-                                <option value="2160(sm³) ">Headphone:  Over-ear</option>
+                                <option value="84(sm³)">Smartphone:  Compact</option>
+                                <option value="42(sm³)">Keyboard:  Tenkeyless</option>
+                                <option value="2160(sm³)">Headphone:  Over-ear</option>
                                 <option value="4.5(sm³)">USB:  Small</option>
                                 <option value="2400(sm³)">VR:  Large</option>
                                 <option value="288(sm³)">Mouse:  Normal</option>
                                 <option value="90(sm³)">Charger:  High-power</option>
                                 <option value="40(sm³)">AirPods: Over-ear </option>
-                                <option value="dB ">AirPods	: Over-ear</option>
-                                <option value="mAh ">Charger: High-power</option>
-                                <option value="W ">Headphone: Normal</option>
+                                <option value="dB">AirPods	: Over-ear</option>
+                                <option value="mAh">Charger: High-power</option>
+                                <option value="W">Headphone: Normal</option>
                             </select>
 
                         </div>
                         <div class="half_input">
                             <label >Device specs</label>
                             <select class="product_specs" name="product_specs" >
+
                                 <option value="Storage Laptop"  > Storage Laptop: 256GB-2TB</option>
-                                <option value="Storage Smartphone"  > Storage Smartphone: 64GB-1TB</option>
-                                <option value="Storage Planshet"  > Storage Planshet: 128GB-1TB</option>
-                                <option value="Storage USB"  > Storage USB: 16GB-1TB</option>
-                                <option value="Storage Watch"  > Storage Watch: 4-32GB</option>
                                 <option value="CPU Laptop"  > CPU Laptop: Intel/AMD,</option>
-                                <option value="CPU Smartphone"  > CPU Smartphone: Snapdragon/Apple</option>
-                                <option value="CPU Planshet"  > CPU Planshet: Apple M1/Snapdragon</option>
-                                <option value="CPU Watch"  >CPU Watch: Wear OS/Apple</option>
                                 <option value="RAM Laptop"  > RAM Laptop: 8-64GB</option>
-                                <option value="RAM Smartphone"  > RAM Smartphone: 4-16GB</option>
-                                <option value="RAM Planshet"  > RAM Planshet: 4-16GB</option>
-                                <option value="Type Keyboard"  > Type Keyboard: Mechanical/Membrane</option>
-                                <option value="Type Usb"  >Type: USB 2.0/3.0/3.1/USB-C</option>
-                                <option value="Type Mouse"  >Type: Optical/Laser</option>
-                                <option value="Type Charger"  >Type Charger: Fast/Standard Charging</option>
-                                <option value="Type VR"  >Type VR: Standalone/PC VR</option>
-                                <option value="Type Monitor"  >Type: LED/OLED</option>
-                                <option value="Power Output Headphone"  > Power Output Headphone: 30-50mW</option>
-                                <option value="Power Output AirPods"  > Battery: 5-20mW</option>
-                                <option value="Power Output Charger"  > Battery Charger: 10W-100W</option>
-                                <option value="Power Output AirPods"  > Power Output AirPods: 5-20mW</option>
-                                <option value="Driver Size Headphone"  > Driver Size Headphone: 40-50mm</option>
-                                <option value="Driver Size AirPods"  > Driver Size AirPods: 10-14mm</option>
-                                <option value="Input Keyboard"  >  Input Keyboard: USB/Wireless</option>
-                                <option value="Input Monitor"  >  InputMonitor: HDMI, DisplayPort</option>
-                                <option value="Input Mouse"  > Input Mouse: Wired/Wireless</option>
-                                <option value="Input VR"  > Input VR: Controllers, Hand Tracking</option>
-                                <option value="Input Charger"  > Input Charger: USB-A/C</option>
                                 <option value="Connectivity Laptop"  > Connectivity Laptop: Wi-Fi, Bluetooth, USB</option>
+
+                                <option value="Storage Smartphone"  > Storage Smartphone: 64GB-1TB</option>
+                                <option value="CPU Smartphone"  > CPU Smartphone: Snapdragon/Apple</option>
+                                <option value="RAM Smartphone"  > RAM Smartphone: 4-16GB</option>
                                 <option value="Connectivity Smartphone"  > Connectivity Smartphone: 5G, Wi-Fi, Bluetooth</option>
-                                <option value="Connectivity Keyboard"  >Connectivity Keyboard: Bluetooth, 2.4GHz</option>
-                                <option value="Connectivity Monitor"  > Connectivity Monitor: USB-C, Wi-Fi</option>
-                                <option value="Connectivity Planshet"  > Connectivity Planshet: Wi-Fi, LTE</option>
-                                <option value="Connectivity USB"  > Connectivity USB: PC, Phone, Console</option>
-                                <option value="Connectivity VR"  > Connectivity VR: Wi-Fi, Bluetooth</option>
-                                <option value="Connectivity Watch"  > Connectivity Watch: Bluetooth, GPS, LTE</option>
-                                <option value="Connectivity Mouse"  > Connectivity Mouse: Bluetooth, 2.4GHz</option>
-                                <option value="Resolution Monitor"  > Resolution Monitor: Full HD/4K</option>
                                 <option value="Battery Smartphone"  > Battery Smartphone: 5000-10000mAh</option>
-                                <option value="Battery Watch"  > Battery Watch: 200-600mAh</option>
+
+                                <option value="Storage Planshet"  > Storage Planshet: 128GB-1TB</option>
+                                <option value="CPU Planshet"  > CPU Planshet: Apple M1/Snapdragon</option>
+                                <option value="Connectivity Planshet"  > Connectivity Planshet: Wi-Fi, LTE</option>
+                                <option value="RAM Planshet"  > RAM Planshet: 4-16GB</option>
                                 <option value="Battery Planshet	"  > Battery Planshet: 5000-10000mAh</option>
+
+                                <option value="Storage USB"  > Storage USB: 16GB-1TB</option>
+                                <option value="Type USB"  >Type: USB 2.0/3.0/3.1/USB-C</option>
+                                <option value="Connectivity USB"  > Connectivity USB: PC, Phone, Console</option>
+
+                                <option value="Storage Watch"  > Storage Watch: 4-32GB</option>
+                                <option value="CPU Watch"  >CPU Watch: Wear OS/Apple</option>
+                                <option value="Connectivity Watch"  > Connectivity Watch: Bluetooth, GPS, LTE</option>
+                                <option value="Battery Watch"  > Battery Watch: 200-600mAh</option>
+
+                                <option value="Type Keyboard"  > Type Keyboard: Mechanical/Membrane</option>
+                                <option value="Input Keyboard"  >  Input Keyboard: USB/Wireless</option>
+                                <option value="Connectivity Keyboard"  >Connectivity Keyboard: Bluetooth, 2.4GHz</option>
+
+                                <option value="Type Mouse"  >Type: Optical/Laser</option>
+                                <option value="Input Mouse"  > Input Mouse: Wired/Wireless</option>
+                                <option value="Connectivity Mouse"  > Connectivity Mouse: Bluetooth, 2.4GHz</option>
+
+                                <option value="Type Charger"  >Type Charger: Fast/Standard Charging</option>
+                                <option value="Power Output Charger"  > Battery Charger: 10W-100W</option>
+                                <option value="Input Charger"  > Input Charger: USB-A/C</option>
+
+                                <option value="Type VR"  >Type VR: Standalone/PC VR</option>
+                                <option value="Input VR"  > Input VR: Controllers, Hand Tracking</option>
+                                <option value="Connectivity VR"  > Connectivity VR: Wi-Fi, Bluetooth</option>
+
+                                <option value="Type Monitor"  >Type: LED/OLED</option>
+                                <option value="Input Monitor"  >  InputMonitor: HDMI, DisplayPort</option>
+                                <option value="Connectivity Monitor"  > Connectivity Monitor: USB-C, Wi-Fi</option>
+                                <option value="Resolution Monitor"  > Resolution Monitor: Full HD/4K</option>
+
+                                <option value="Power Output Headphone"  > Power Output Headphone: 30-50mW</option>
+                                <option value="Driver Size Headphone"  > Driver Size Headphone: 40-50mm</option>
                                 <option value="Bluetooth Headphone"  > Bluetooth Headphone: 5.0+, Noise</option>
+
+                                <option value="Power Output AirPods"  > Power Output AirPods: Battery 5-20mW</option>
+                                <option value="Driver Size AirPods"  > Driver Size AirPods: 10-14mm</option>
                                 <option value="Bluetooth AirPods"  > Bluetooth AirPods: 5.0+, Noise</option>
                             </select>
                         </div>

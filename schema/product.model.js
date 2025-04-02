@@ -54,7 +54,8 @@ const productSchema = new mongoose.Schema(
                     "headphone",
                     "usb",
                     "vr",
-                    "airpods"
+                    "airpods",
+                    "accessory"
                 ];
                 return sized_list.includes(this.product_collection);
             },

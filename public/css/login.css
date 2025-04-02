@@ -54,7 +54,6 @@ html {
 }
 
 .login_container .login_frame:hover {
-  /* background: rgba(134, 171, 210, 0.3); */
   background: rgba(134, 171, 210, 0.1);
   transform: translate(-50%, -50%) scale(1.05);
   box-shadow: 0 15px 40px rgba(0, 255, 255, 0.9);
